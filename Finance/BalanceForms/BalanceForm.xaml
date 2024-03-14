@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finance.BalanceForms"
         mc:Ignorable="d"
-        Title="BalanceForm" Height="450" Width="800">
+         Title="Баланс" Height="248" Width="452" Background="#FF232323">
     <Grid>
-        
+        <Label Name="summaLabel" Content="сумма" HorizontalAlignment="Left" Margin="108,49,0,0" Foreground="White" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Баланс: " HorizontalAlignment="Left" Foreground="White" Margin="32,49,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Name="fioLabel" Content="FIO" HorizontalAlignment="Left" Foreground="White" Margin="32,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Button Name="tranzakciiButton" Content="Транзакции" HorizontalAlignment="Left" Margin="17,159,0,0" VerticalAlignment="Top" Height="33" Width="99"/>
+
     </Grid>
 </Window>

@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finance.TranzakciiForms"
         mc:Ignorable="d"
-        Title="InsertTranzakciiForm" Height="450" Width="800">
+        Title="Добавление операции" Height="279" Width="554" Background="#FF232323">
     <Grid>
-        
+        <ComboBox Name="kategoriiComboBox" DisplayMemberPath="Name" ItemsSource="{Binding C7KategoriiPengeluaran}" HorizontalAlignment="Left" Margin="58,81,0,0" VerticalAlignment="Top" Width="124" Height="27"/>
+        <TextBox Name="summaBox" HorizontalAlignment="Left" Margin="232,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" Height="28"/>
+        <Button Name="savedButton" Content="Сохранить" HorizontalAlignment="Left" Margin="176,191,0,0" VerticalAlignment="Top" Height="27" Width="81"/>
+        <Button Name="CancelButton" Content="Отменить" HorizontalAlignment="Left" Margin="298,191,0,0" VerticalAlignment="Top" Height="27" Width="81"/>
+        <Label Content="Категория" HorizontalAlignment="Left" Foreground="White" Margin="58,47,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Сумма" HorizontalAlignment="Left" Foreground="White" Margin="232,47,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="381,82,0,0" VerticalAlignment="Top" Height="27" Width="124"/>
+        <Label Content="Дата" HorizontalAlignment="Left" Foreground="White" Margin="379,48,0,0" VerticalAlignment="Top" FontSize="18"/>
+
     </Grid>
 </Window>

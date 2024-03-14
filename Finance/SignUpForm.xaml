@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finance"
         mc:Ignorable="d"
-        Title="SignUpForm" Height="450" Width="800">
+        Title="Регистрация" Height="553" Width="492" Background="#FF232323">
     <Grid>
-        
+        <TextBox Name="LastNameBox" HorizontalAlignment="Left" Margin="52,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" Height="33"/>
+        <TextBox x:Name="FirstNameBox" HorizontalAlignment="Left" Margin="52,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" Height="33"/>
+        <TextBox Name="PatronymicBox" HorizontalAlignment="Left" Margin="52,291,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" Height="33"/>
+        <TextBox x:Name="loginBox" HorizontalAlignment="Left" Margin="314,157,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" Height="34"/>
+        <TextBox x:Name="passBox" HorizontalAlignment="Left" Margin="314,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" Height="33"/>
+        <Label Content="Регистрация" HorizontalAlignment="Left" Foreground="White" FontSize="24" Margin="186,22,0,0" VerticalAlignment="Top"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="52,73,0,0" VerticalAlignment="Top"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="47,157,0,0" VerticalAlignment="Top"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="47,252,0,0" VerticalAlignment="Top"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="314,118,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="314,219,0,0" VerticalAlignment="Top"/>
+        <Button Name="regButton" Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="186,401,0,0" VerticalAlignment="Top" Height="40" Width="136"/>
+        <Label Name ="authlabel"  Content="Есть аккаунт" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="198,441,0,0" VerticalAlignment="Top" />
+
     </Grid>
 </Window>

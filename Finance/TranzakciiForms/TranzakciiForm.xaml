@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Finance.TranzakciiForms"
         mc:Ignorable="d"
-        Title="TranzakciiForm" Height="450" Width="800">
+        Title="Операции" Height="450" Width="800" Background="#FF232323">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="242*"/>
+            <RowDefinition Height="193*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="TranzakciiGrid" Background="#FF232323" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding TranzakciiID}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Категория" Binding="{Binding C7KategoriPengeluaran.Name}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Summa}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Data}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="addedButton" Content="Добавить" HorizontalAlignment="Left" Margin="288,126,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="100"/>
+        <Button Name="deleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="445,126,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="100"/>
+        <Button x:Name="cancelButton" Content="Выйти" HorizontalAlignment="Left" Margin="653,126,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="100" />
+
     </Grid>
 </Window>
