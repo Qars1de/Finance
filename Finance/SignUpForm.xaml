@@ -18,8 +18,8 @@
         <Label Content="Отчество" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="47,252,0,0" VerticalAlignment="Top"/>
         <Label Content="Логин" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="314,118,0,0" VerticalAlignment="Top"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="314,219,0,0" VerticalAlignment="Top"/>
-        <Button Name="regButton" Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="186,401,0,0" VerticalAlignment="Top" Height="40" Width="136"/>
-        <Label Name ="authlabel"  Content="Есть аккаунт" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="198,441,0,0" VerticalAlignment="Top" />
+        <Button Name="regButton" Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="186,401,0,0" VerticalAlignment="Top" Height="40" Width="136" Click="regButton_Click"/>
+        <Label Name ="authlabel"  Content="Есть аккаунт" HorizontalAlignment="Left" Foreground="white" FontSize="18" Margin="198,441,0,0" VerticalAlignment="Top" MouseDoubleClick="authlabel_MouseDoubleClick" />
 
     </Grid>
 </Window>

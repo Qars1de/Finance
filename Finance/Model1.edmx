@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище user70_dbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="7Balance">
+          <Key>
+            <PropertyRef Name="BalanceID" />
+          </Key>
+          <Property Name="BalanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Balance" Type="int" />
+        </EntityType>
+        <EntityType Name="7KategoriPengeluaran">
+          <Key>
+            <PropertyRef Name="CategoriID" />
+          </Key>
+          <Property Name="CategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="7Tranzakcii">
+          <Key>
+            <PropertyRef Name="TranzakciiID" />
+          </Key>
+          <Property Name="TranzakciiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="KategoriID" Type="int" />
+          <Property Name="Data" Type="date" />
+          <Property Name="Summa" Type="int" />
+        </EntityType>
+        <EntityType Name="7User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="Login" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_7Balance_7User">
+          <End Role="7User" Type="Self.7User" Multiplicity="1" />
+          <End Role="7Balance" Type="Self.7Balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="7User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="7Balance">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_7Tranzakcii_7KategoriPengeluaran">
+          <End Role="7KategoriPengeluaran" Type="Self.7KategoriPengeluaran" Multiplicity="0..1" />
+          <End Role="7Tranzakcii" Type="Self.7Tranzakcii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="7KategoriPengeluaran">
+              <PropertyRef Name="CategoriID" />
+            </Principal>
+            <Dependent Role="7Tranzakcii">
+              <PropertyRef Name="KategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_7Tranzakcii_7User">
+          <End Role="7User" Type="Self.7User" Multiplicity="0..1" />
+          <End Role="7Tranzakcii" Type="Self.7Tranzakcii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="7User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="7Tranzakcii">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище user70_dbModelContainer">
+          <EntitySet Name="7Balance" EntityType="Self.7Balance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="7KategoriPengeluaran" EntityType="Self.7KategoriPengeluaran" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="7Tranzakcii" EntityType="Self.7Tranzakcii" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="7User" EntityType="Self.7User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_7Balance_7User" Association="Self.FK_7Balance_7User">
+            <End Role="7User" EntitySet="7User" />
+            <End Role="7Balance" EntitySet="7Balance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_7Tranzakcii_7KategoriPengeluaran" Association="Self.FK_7Tranzakcii_7KategoriPengeluaran">
+            <End Role="7KategoriPengeluaran" EntitySet="7KategoriPengeluaran" />
+            <End Role="7Tranzakcii" EntitySet="7Tranzakcii" />
+          </AssociationSet>
+          <AssociationSet Name="FK_7Tranzakcii_7User" Association="Self.FK_7Tranzakcii_7User">
+            <End Role="7User" EntitySet="7User" />
+            <End Role="7Tranzakcii" EntitySet="7Tranzakcii" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="user70_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C7Balance">
+          <Key>
+            <PropertyRef Name="BalanceID" />
+          </Key>
+          <Property Name="BalanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Balance" Type="Int32" />
+          <NavigationProperty Name="C7User" Relationship="Self.FK_7Balance_7User" FromRole="C7Balance" ToRole="C7User" />
+        </EntityType>
+        <EntityType Name="C7KategoriPengeluaran">
+          <Key>
+            <PropertyRef Name="CategoriID" />
+          </Key>
+          <Property Name="CategoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="C7Tranzakcii" Relationship="Self.FK_7Tranzakcii_7KategoriPengeluaran" FromRole="C7KategoriPengeluaran" ToRole="C7Tranzakcii" />
+        </EntityType>
+        <EntityType Name="C7Tranzakcii">
+          <Key>
+            <PropertyRef Name="TranzakciiID" />
+          </Key>
+          <Property Name="TranzakciiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="KategoriID" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="Summa" Type="Int32" />
+          <NavigationProperty Name="C7KategoriPengeluaran" Relationship="Self.FK_7Tranzakcii_7KategoriPengeluaran" FromRole="C7Tranzakcii" ToRole="C7KategoriPengeluaran" />
+          <NavigationProperty Name="C7User" Relationship="Self.FK_7Tranzakcii_7User" FromRole="C7Tranzakcii" ToRole="C7User" />
+        </EntityType>
+        <EntityType Name="C7User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="C7Balance" Relationship="Self.FK_7Balance_7User" FromRole="C7User" ToRole="C7Balance" />
+          <NavigationProperty Name="C7Tranzakcii" Relationship="Self.FK_7Tranzakcii_7User" FromRole="C7User" ToRole="C7Tranzakcii" />
+        </EntityType>
+        <Association Name="FK_7Balance_7User">
+          <End Role="C7User" Type="Self.C7User" Multiplicity="1" />
+          <End Role="C7Balance" Type="Self.C7Balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C7User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="C7Balance">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_7Tranzakcii_7KategoriPengeluaran">
+          <End Role="C7KategoriPengeluaran" Type="Self.C7KategoriPengeluaran" Multiplicity="0..1" />
+          <End Role="C7Tranzakcii" Type="Self.C7Tranzakcii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C7KategoriPengeluaran">
+              <PropertyRef Name="CategoriID" />
+            </Principal>
+            <Dependent Role="C7Tranzakcii">
+              <PropertyRef Name="KategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_7Tranzakcii_7User">
+          <End Role="C7User" Type="Self.C7User" Multiplicity="0..1" />
+          <End Role="C7Tranzakcii" Type="Self.C7Tranzakcii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C7User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="C7Tranzakcii">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="user70_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C7Balance" EntityType="Self.C7Balance" />
+          <EntitySet Name="C7KategoriPengeluaran" EntityType="Self.C7KategoriPengeluaran" />
+          <EntitySet Name="C7Tranzakcii" EntityType="Self.C7Tranzakcii" />
+          <EntitySet Name="C7User" EntityType="Self.C7User" />
+          <AssociationSet Name="FK_7Balance_7User" Association="Self.FK_7Balance_7User">
+            <End Role="C7User" EntitySet="C7User" />
+            <End Role="C7Balance" EntitySet="C7Balance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_7Tranzakcii_7KategoriPengeluaran" Association="Self.FK_7Tranzakcii_7KategoriPengeluaran">
+            <End Role="C7KategoriPengeluaran" EntitySet="C7KategoriPengeluaran" />
+            <End Role="C7Tranzakcii" EntitySet="C7Tranzakcii" />
+          </AssociationSet>
+          <AssociationSet Name="FK_7Tranzakcii_7User" Association="Self.FK_7Tranzakcii_7User">
+            <End Role="C7User" EntitySet="C7User" />
+            <End Role="C7Tranzakcii" EntitySet="C7Tranzakcii" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище user70_dbModelContainer" CdmEntityContainer="user70_dbEntities">
+          <EntitySetMapping Name="C7Balance">
+            <EntityTypeMapping TypeName="user70_dbModel.C7Balance">
+              <MappingFragment StoreEntitySet="7Balance">
+                <ScalarProperty Name="BalanceID" ColumnName="BalanceID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C7KategoriPengeluaran">
+            <EntityTypeMapping TypeName="user70_dbModel.C7KategoriPengeluaran">
+              <MappingFragment StoreEntitySet="7KategoriPengeluaran">
+                <ScalarProperty Name="CategoriID" ColumnName="CategoriID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C7Tranzakcii">
+            <EntityTypeMapping TypeName="user70_dbModel.C7Tranzakcii">
+              <MappingFragment StoreEntitySet="7Tranzakcii">
+                <ScalarProperty Name="TranzakciiID" ColumnName="TranzakciiID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C7User">
+            <EntityTypeMapping TypeName="user70_dbModel.C7User">
+              <MappingFragment StoreEntitySet="7User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

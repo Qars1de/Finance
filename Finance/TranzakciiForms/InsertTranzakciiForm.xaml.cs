@@ -22,6 +22,24 @@ namespace Finance.TranzakciiForms
         public InsertTranzakciiForm()
         {
             InitializeComponent();
+
+            var allTypes = App.Context.C7KategoriPengeluaran.ToList();
+            allTypes.Insert(0, new C7KategoriPengeluaran
+            {
+                Name = "Все категории"
+            });
+            kategoriiComboBox.SelectedIndex = 0;
+            kategoriiComboBox.ItemsSource = allTypes;
+        }
+
+        private void savedButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

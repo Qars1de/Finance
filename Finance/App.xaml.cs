@@ -13,5 +13,7 @@ namespace Finance
     /// </summary>
     public partial class App : Application
     {
+        public static user70_dbEntities Context
+        { get; } = new user70_dbEntities();
     }
 }

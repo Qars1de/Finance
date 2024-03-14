@@ -9,11 +9,11 @@
     <Grid>
         <TextBox Name="loginBox" HorizontalAlignment="Center" Margin="0,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138" Height="38"/>
         <TextBox Name="passBox" HorizontalAlignment="Center" Margin="0,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138" Height="38"/>
-        <Button Name="signButton" Content="Авторизоваться" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top" Height="36" Width="98"/>
+        <Button Name="signButton" Content="Авторизоваться" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top" Height="36" Width="98" Click="signButton_Click"/>
         <Label Content="Авторизуйтесь" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
         <Label Content="Логин:" HorizontalAlignment="Left" Foreground="White" Margin="104,94,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Пароль:" HorizontalAlignment="Left" Foreground="White" Margin="104,191,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label x:Name ="reglabel"  Content="Нет аккаунта" HorizontalAlignment="Center" Foreground="white" FontSize="18" Margin="0,357,0,0" VerticalAlignment="Top"  />
+        <Label x:Name ="reglabel"  Content="Нет аккаунта" HorizontalAlignment="Center" Foreground="white" FontSize="18" Margin="0,357,0,0" VerticalAlignment="Top" MouseDoubleClick="reglabel_MouseDoubleClick"  />
 
     </Grid>
 </Window>
